@@ -36,7 +36,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class UserControllerTest {
 
-    @Autowired
     private MockMvc mvc;
 
     private Principal mockPrincipal;
@@ -143,6 +142,4 @@ class UserControllerTest {
                         .content(objectMapper.writeValueAsString(userUpdateRequestDto)))
                 .andExpect(status().isOk());
     }
-
-
 }
