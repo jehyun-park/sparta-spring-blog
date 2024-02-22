@@ -63,15 +63,13 @@ class UserControllerTest {
                 .build();
     }
 
-    private User testUser;
-
     private void mockUserSetup() {
         // Mock 테스트 유져 생성
         String username = "user";
         String password = "password123";
         String email = "test@naver.com";
         String info = "info1";
-        testUser = new User(username, password, email, info);
+        User testUser = new User(username, password, email, info);
         UserDetailsImpl testUserDetails = new UserDetailsImpl(testUser);
         mockPrincipal = new UsernamePasswordAuthenticationToken(testUserDetails, "", testUserDetails.getAuthorities());
     }
@@ -132,7 +130,6 @@ class UserControllerTest {
 
         // When
         when(jwtUtil.getEmailFromToken(token)).thenReturn("test@naver.com");
-        when(userRepository.findByEmail(anyString())).thenReturn(Optional.of(testUser));
         when(passwordEncoder.matches(anyString(), anyString())).thenReturn(true);
 
         // Then
