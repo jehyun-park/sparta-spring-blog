@@ -57,7 +57,7 @@ public class UserController {
         return userService.getUserList(id);
     }
     // info 수정
-    @PutMapping("/{id}")
+    @PutMapping("/{id}/info")
     public UserResponseDto updateUserInfo(@RequestHeader("Authorization") String token,
                                           @PathVariable Long id,
                                           @Valid @RequestBody UserRequestDto userRequestDto) {
